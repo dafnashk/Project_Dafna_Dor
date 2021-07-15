@@ -1,0 +1,299 @@
+---
+title: "Project"
+author: Dafna Shkolnik 205502545, Dor Babich 315454256
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message = FALSE)
+```
+<hr>
+<div dir="rtl">
+
+## <b>יחסי מדינה-זיהום אוויר</b>
+## כיצד משפיע גודל המדינה על פליטות מזהמי אוויר, וכיצד אלה משפיעים על מוות מזיהום במדינות ה-OECD?
+
+## מבוא
+משבר האקלים הינו נושא המטריד ומעסיק רבים מאתנו והוא תוצר ישיר של פליטות גזי חממה. לרוב, פליטות אלה נגרמות כתוצאה מפעילות אנושית ולהן השפעה סביבתית שלילית על כלל המערכות האקולוגיות בעולמנו. בכל שנה ישנו מספר מקרי מוות לא מבוטל כתוצאה מזיהום. 
+בעידן המודרני, פוסט המהפכה התעשייתית, כל מדינה תורמת לזיהום האוויר ברמה כזו או אחרת. אוכלוסיית העולם הולכת וגדלה בקצב מסחרר ומעניין לראות את השפעתה על זיהום האוויר וכיצד זיהום האוויר משפיע עליה. 
+
+במחקר זה נרצה לבחון כשלב ראשון כיצד גודל האוכלוסייה במדינה משפיע על פליטות מזהמי האוויר במדינה, וכשלב שני כיצד פליטות מזהמי אוויר שונים משפיעות על מוות מזיהום.
+ברצוננו להתמקד במדינות ה-OECD, מדינות מפותחות הדוגלות בשוק חופשי. רצינו לבחון את ההבדלים בין המדינות האלה אשר מושתתות על עקרונות מנחים וסטנדרטים משותפים מבחינה חברתית וכלכלית ברמה לאומית.
+
+
+
+
+## סקירת ספרות
+ההנחה הרווחת היא כי לגודל אוכלוסייה יש השפעה שלילית על הסביבה. במאמר שלEhrlich & Holdern  (1971) מוצגת ההשפעה של החברה על הסביבה והטענה היא שככל שהאוכלוסייה גדלה אופן ההשפעה לנפש על המערכת הסביבתית עולה. 
+
+מנגד, לפי יתרון הגודל והריכוזיות גודל האוכלוסייה והצפיפות שלה עשויים להשפיע לטובה על הסביבה, דבר שבא לידי ביטוי בעיקר באזורים העירוניים. ככל שהאוכלוסייה גדלה ומרוכזת עולה היכולת לספק תשתיות, לטפל בשפכים, לייעל שימוש במשאבים ולצמצם פליטות גזי חממה (Boeing G., 2018). 
+
+מדינות ה-OECD (Organisation for Economic Co-operation and Development) נחשבות מפותחות, רובן עשירות והן דוגלות בשוק חופשי. מדינות אלה עניינן במציאת פתרונות כלכליים, סביבתיים וחברתיים ואף מנסות להנחיל את רעיונותיהן בקרב מדינות הלא חברות בארגון (Eppel, 1991).
+
+במאמר של Bashir (2021) נטען כי המודעות הגוברת להגנת הסביבה דוחפת את קובעי המדיניות לנקוט בשיטות כלכליות ברות קיימא לטובת הפחתת השפעות סביבתיות, וביניהן פליטות גזי חממה, בייחוד פחמן דו-חמצני. בין היתר קיימים מיסים המוטלים על צריכת אנרגיה ועוצמת אנרגיה, וכן פתרונות חדשים לנושאי שינויי אקלים וייצור נקי.
+
+מאמרם של אוינג ושות' ((Ouyang et al., 2019 מתייחס בעיקר לחלקיקי PM2.5 ומודד ויסות סביבתי בין השנים 1998-2015 במדינות ה-OECD. כתוצאה מצמיחה כלכלית של המדינות והשקעה נכונה בתכנון סביבתי, ממצא עיקרי מהמאמר הוא שהזיהום נעלם בהדרגה עם יישום תקנות סביבתיות מחמירות.
+
+## השערות המחקר
+אנו משערים כי ככל שאוכלוסיית המדינה גדולה, כך פליטות מזהמי האוויר יהיו רבות. נצפה לראות את ההשפעה הגדולה יותר על פחמן דו-חמצני, משום שמהווה גז חממה הנפלט מפעילות אנושית ברמה גבוהה מאוד.
+
+השערתנו השניה היא כי ככל שפליטות המזהמים יהיו גדולות, כך המוות מזיהום יעלה, שכן גזים וחלקיקים אלו מביאים לזיהום אויר אשר מביא לתחלואה ולמוות.
+
+
+
+
+עשינו שימוש בנתונים המציגים את המצב במדינות ה-OECD נכון לשנת 2018, שהינה העדכנית ביותר בעלת כלל הנתונים.
+
+נתונים על פליטות זיהום אוויר, מוות מזיהום וגודל אוכלוסייה הובאו מאתר ה-OECD https://www.oecd.org/ 
+
+נתוני הפד"ח הובאו מאתר gapminder
+https://www.gapminder.org/ 
+ 
+ קורדינטות המדינות הובאו מ-Google
+https://developers.google.com/public-data/docs/canonical/countries_csv 
+
+</div>
+## שיטות
+
+### טעינת ספריות וייבוא נתונים
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+library(gridExtra)
+library(maps)
+
+air=read_csv("C:\\Users\\Dafi\\Downloads\\oecd_air.csv")
+pop=read_csv("C:\\Users\\Dafi\\Downloads\\oecd_population.csv")
+Co2=read_csv("C:\\Users\\Dafi\\Downloads\\co2.csv")
+pollution_deaths=read_csv("C:\\Users\\Dafi\\Downloads\\pollution_deaths.csv")
+country_location=read_csv("C:\\Users\\Dafi\\Downloads\\country_location.csv")
+```
+
+<hr>
+<div dir="rtl">
+## סידור נתונים וחיבור טבלאות
+תחילה, מכל טבלה לקחנו את המשתנים הרלוונטיים לנו משנת 2018- שם מדינה וקוד מדינה, גודל אוכלוסייה (במיליונים), מוות מזיהום (לכל 100,000 תושבים), מזהמי אוויר שונים (ביחידות של אלף טון) וקורדינטות של המדינות. לאחר מכן, סידרנו את נתוני מזהמי האוויר כך שלכל מזהם תהיה עמודה משלו בעזרת פקודת spread, ביצענו איחוד של הטבלאות, שינינו את שמות העמודות לשמות נוחים יותר לעבודה, סידרנו אותן לפי סדר רצוי ולבסוף הורדנו שתי תצפיות שכן היו סיכום של כלל מדינות ה-OECD ולא מדינות ספציפיות.
+</div>
+```{r}
+air= air %>% filter(VAR=="TOT") %>%
+      select(Country, COU, Pollutant, Value)
+
+pollution_deaths = pollution_deaths %>% filter(TIME=="2018") %>%
+            select(c(1,7))  
+
+pop= pop %>% filter(TIME=="2018") %>%
+      select(LOCATION, Value)
+
+Co2 = Co2 %>% select(LOCATION, "2018")
+
+country_location = country_location %>% select(latitude, longitude, name)
+
+x = air %>% left_join(pollution_deaths, c("COU"="LOCATION")) %>%
+        spread(key = Pollutant, value = Value.x) %>%
+        left_join(pop, c("COU"="LOCATION")) %>%
+        left_join(Co2, c("COU"="LOCATION")) %>%
+        left_join(country_location, c("Country"="name")) %>%
+        rename(population=Value, pollution_deaths=Value.y, Co2="2018", country_code=COU, 
+        CO="Carbon Monoxide", NOX="Nitrogen Oxides", PM10="Particulates (PM10)", country = Country, 
+       PM2.5="Particulates (PM2.5)", SOX="Sulphur Oxides") %>%
+       select(country, country_code, population, everything())
+
+x= x[-c(25,26),]
+
+head(x)
+```
+<hr>
+<div dir="rtl">
+### מבחן שפירו-וילקס
+בחנו את נורמליות התפלגות הנתונים המוסברים במחקר באמצעות מבחני "שפירו-וילקס". כאשר ה-p-value קטן מ-0.05 אזי המשתנה אינו מתפלג נורמלית.
+</div>
+```{r}
+shapiro.test(x$pollution_deaths)
+shapiro.test(x$CO)
+shapiro.test(x$NOX)
+shapiro.test(x$PM10)
+shapiro.test(x$PM2.5)
+shapiro.test(x$SOX)
+shapiro.test(x$Co2)
+```
+<hr>
+<div dir="rtl">
+לפי התוצאות, הנתונים אינם מתפלגים נורמלית. ה-p.value הגדול ביותר הינו של משתנה המוות מזיהום (0.01121) וכל השאר קטנים בהרבה. עם זאת, בקורס נלמד כי גם אם הנתונים אינם מתפלגים נורמלית ניתן להמשיך במחקר. 
+
+</div>
+### מבחני התאמה מסוג "פירסון"
+נערכו מבחני התאמה מסוג "פירסון" כדי להראות את הקשר בין המשתנים:
+```{r}
+cor.test(x$CO, x$population, method="pearson")
+cor.test(x$NOX, x$population, method="pearson")
+cor.test(x$PM10, x$population, method="pearson")
+cor.test(x$PM2.5, x$population, method="pearson")
+cor.test(x$SOX, x$population, method="pearson")
+cor.test(x$Co2, x$population, method="pearson")
+```
+<hr>
+<div dir="rtl">
+בין גודל אוכלוסייה למזהמים-
+ראינו קשר חזק במובהקות גבוהה בין גודל האוכלוסייה ובין מזהמי האוויר השונים. הקשר החזק ביותר נמצא בCo2- (0.946), אחריו ב-Co (0.917), PM2.5 (0.882), PM10 (0.76), Nox (0.746) והכי פחות חזק נמצא ב-Sox (0.648).
+
+</div>
+
+```{r}
+cor.test(x$CO, x$pollution_deaths, method="pearson")
+cor.test(x$NOX, x$pollution_deaths, method="pearson")
+cor.test(x$PM10, x$pollution_deaths, method="pearson")
+cor.test(x$PM2.5, x$pollution_deaths, method="pearson")
+cor.test(x$SOX, x$pollution_deaths, method="pearson")
+cor.test(x$Co2, x$pollution_deaths, method="pearson")
+```
+<hr>
+<div dir="rtl">
+בין מזהמים למוות מזיהום-
+נמצאו קשרים חלשים מאוד עד לרמה שאין קשר כלל ובמובהקות נמוכה בין מזהמי האוויר השונים ובין מוות מזיהום. ב-CO, PM10, PM2.5 ו-Co2 הקשר החלש מאוד היה אף שלילי. דבר זה מפתיע, משום שהיינו מצפים לראות קשר חיובי שמראה שככל שיש יותר זיהום אוויר, כך המוות מזיהום יעלה. 
+
+הסברים אפשריים לתוצאות המבחנים ידונו בפרק המסקנות.
+
+</div>
+### רגרסיה לינארית
+מבחני רגרסיה הבוחנים כיצד גודל האוכלוסייה משפיע על כל מזהם אויר
+```{r}
+pop_co= lm(x$CO~x$population)
+summary(pop_co)
+
+pop_nox= lm(x$NOX~x$population)
+summary(pop_nox)
+
+pop_PM10= lm(x$PM10~x$population)
+summary(pop_PM10)
+
+pop_PM2.5= lm(x$PM2.5~x$population)
+summary(pop_PM2.5)
+
+pop_sox= lm(x$SOX~x$population)
+summary(pop_sox)
+
+pop_co2= lm(x$Co2~x$population)
+summary(pop_co2)
+```
+<hr>
+<div dir="rtl">
+ניתן לראות כי ה-P.value הנמוך ביותר שייך לפחמן דו-חמצני (<2.2e-16) וה-R-squared הינו גבוה  מאוד ולפיו 89.22% מפליטות הפד"ח מוסברות על-ידי גודל האוכלוסייה וזאת במובהקות גבוהה. לאחר מכן הפחמן החד-חמצני עם R-squared של 0.8365 שגם הוא גבוה עם רמת מובהקות גבוהה 9.584e-15. הקשר החלש ביותר נמצא בין גודל האוכלוסייה ל-sox- R-squared של 0.4033 לפיו 40.33% מפליטות ה-sox מוסברות על-ידי גודל האוכלוסייה, וזאת ברמת מובהקות של p-value 2.496e-05.
+
+</div>
+
+
+### רגרסיה מרובת משתנים 
+רגרסיה הבוחנת כיצד כלל המשתנים משפיעים על המשתנה המוסבר מוות מזיהום
+```{r}
+t2= lm(pollution_deaths~ Co2 + CO+ NOX+ PM10+ PM2.5+ SOX + population, data=x)
+summary(t2)
+```
+#### שימוש בלולאה על מנת לייצר לכל מזהם עמודה עם ערכים שעברו טרנספורמציה לוגריתמית, זאת כדי שיהיה אפשר לראות יותר טוב את הקשר ואת פריסת הערכים בצורה יותר ברורה
+```{r}
+log.many= function(dat, column.nos) {
+    nms= names(dat)
+    for(col in column.nos) {
+        name= paste(nms[col],".log", sep = "")
+        dat[name]= log(dat[,col])
+    }
+    cat(paste("rescaled with log", length(column.nos), " variable(s)\n"))
+    dat
+}
+
+x= log.many(x, c(5:10))
+```
+
+<hr>
+<div dir="rtl">
+
+### גרפים
+ביצענו ניתוח של הנתונים באמצעות ggplot ויצרנו גרפים המציגים את הקשרים הן בין גודל האוכלוסייה לפליטות מזהמי האוויר השונים, והן בין מזהמי האוויר השונים למקרי המוות מזיהום במדינה. 
+
+תחילה התייחסנו לפליטות מזהמי האוויר השונים כמשתנה התלוי אל מול גודל האוכלוסייה (שהיה המשתנה הבלתי תלוי). התייחסנו לעמודות ה-log של נתוני המזהמים כדי שיהיה אפשר לראות יותר טוב את הקשר ואת פריסת הערכים בצורה יותר ברורה.
+</div>
+### גרפים המציגים קורלציה בין גודל אוכלוסייה לפליטות מזהמי אוויר
+```{r message=FALSE, warning=FALSE}
+pop_co_plot= ggplot(x, aes(x=population, y=CO.log)) + geom_point(color= "blue") + geom_smooth(color = "red") + xlab("population (m)") + ylab("log CO (1000T)")
+
+pop_nox_plot= ggplot(x, aes(x=population, y=NOX.log)) + geom_point(color= "blue") + geom_smooth(color = "red") + xlab("population (m)") + ylab("log NOX (1000T)")
+
+pop_PM10_plot= ggplot(x, aes(x=population, y=PM10.log)) + geom_point(color= "blue") + geom_smooth(color = "red") + xlab("population (m)") + ylab("log PM10 (1000T)")
+
+pop_PM2.5_plot= ggplot(x, aes(x=population, y=PM2.5.log)) + geom_point(color= "blue") + geom_smooth(color = "red") + xlab("population (m)") + ylab("log PM2.5 (1000T)")
+
+pop_sox_plot= ggplot(x, aes(x=population, y=SOX.log)) + geom_point(color= "blue") + geom_smooth(color = "red") + xlab("population (m)") + ylab("log SOX (1000T)")
+
+pop_co2_plot= ggplot(x, aes(x=population, y=Co2.log)) + geom_point(color= "blue") + geom_smooth(color = "red") + xlab("population (m)") + ylab("log Co2 (1000T)")
+
+grid.arrange(pop_co_plot, pop_nox_plot, pop_PM10_plot, pop_PM2.5_plot, pop_sox_plot, pop_co2_plot, nrow=3)
+```
+<hr>
+<div dir="rtl">
+ניתן לראות כי במדינות הקטנות יותר, ככל שגודל האוכלוסייה עולה, כך הפליטות עולות בצורה מובהקת. לאחר איזשהו שיא סביב 40 מיליון תושבים, ישנה ירידה בפליטות ואז עלייה מתונה יותר, כשאוכלוסיית המדינה כבר גדולה מאוד (מעל ל-150 מיליון תושבים לערך).
+
+</div>
+## גרפים המציגים קורלציה בין פליטת מזהמי אוויר למוות מזיהום
+```{r}
+co_pol_plot=ggplot(x, aes(x=CO.log, y=pollution_deaths)) + geom_point(color= "blue") + geom_smooth(color = "red") + xlab("log CO (1000T)") + ylab("Deaths (per 100K)")
+
+nox_pol_plot=ggplot(x, aes(x=NOX.log, y=pollution_deaths)) + geom_point(color= "blue") + geom_smooth(color = "red") + xlab("log NOX (1000T)") + ylab("Deaths (per 100K)")
+
+PM10_pol_plot=ggplot(x, aes(x=PM10.log, y=pollution_deaths)) + geom_point(color= "blue") + geom_smooth(color = "red") + xlab("log PM10 (1000T)") + ylab("Deaths (per 100K)")
+
+PM2.5_pol_plot=ggplot(x, aes(x=PM2.5.log, y=pollution_deaths)) + geom_point(color= "blue") + geom_smooth(color = "red") + xlab("log PM2.5 (1000T)") + ylab("Deaths (per 100K)")
+
+sox_pol_plot=ggplot(x, aes(x=SOX.log, y=pollution_deaths)) + geom_point(color= "blue") + geom_smooth(color = "red") + xlab("log SOX (1000T)") + ylab("Deaths (per 100K)")
+
+co2_pol_plot=ggplot(x, aes(x=Co2.log, y=pollution_deaths)) + geom_point(color= "blue") + geom_smooth(color = "red") + xlab("log Co2") + ylab("Deaths (per 100K)")
+
+grid.arrange(co_pol_plot, nox_pol_plot, PM10_pol_plot, PM2.5_pol_plot, sox_pol_plot, co2_pol_plot, nrow=3)
+```
+<hr>
+<div dir="rtl">
+הופתענו לראות שאין כמעט קשר בין פליטת מזהם לבין מוות מזיהום והתצפיות מפוזרות בגרף. אצל החלקיקים (הן PM10 והן PM2.5) והפד"ח ניתן לראות שיא קטן באמצע הגרף המראה שבכמות פליטות מסוימת ישנה עלייה בתמותה ואז ירידה. 
+
+אין קשר ברור בין פליטות מזהמי אוויר לבין מוות מזיהום. הסבר לכך הוא שמוות מזיהום אינו בהכרח תוצאה ישירה של מזהמים אלו, ויש עוד גורמים אחרים, ישירים ועקיפים, אשר יכולים לגרום לו. במחקר זה לא בחנו את כלל מזהמי האוויר. 
+
+
+## מפה
+יצרנו גרף עם מפת העולם, ובעזרת קורדינטות של כל מדינות ה-OECD יכולנו למקם את הנקודות על המפה. גודל הנקודה מייצג את גודל האוכלוסייה במדינה (במיליונים), וצבעה מייצג את רמת פליטות הפד"ח. בחרנו במזהם זה משום שהוא הדומיננטי ביותר מתוך כלל המזהמים והקשר בינו לבין גודל האוכלוסייה היה החזק ביותר, כפי שנראה במבחן ההתאמה. רצינו לראות ויזואלית על מפה את ההבדלים בפליטות ביחס לגודל האוכלוסייה. ניתן לראות כי ביבשת אירופה קיים מספר מדינות ה-OECD גדול בהרבה משאר היבשות, ושם נמצאות המדינות שפולטות הכי מעט פד"ח.
+
+</div>
+```{r}
+world = map_data("world")
+ggplot(x) + 
+  geom_point(aes(x=longitude, y=latitude, size=population, 
+                 color=log(Co2)), shape=20, stroke=FALSE, ) + 
+geom_polygon(data = world, aes(x=long, y = lat, group = group), fill="grey", alpha=0.3)
+```
+
+<hr>
+<div dir="rtl">
+## מסקנות
+על בסיס המחקר אנו למדים כי לגודל האוכלוסייה קשר חיובי מובהק עם פליטות מזהמי האוויר. עובדה זו תואמת את השערתנו ואת מאמרם של ארליך והולדרן (Erlich & Holdern, 1971). ההשפעה הגדולה ביותר היא על פליטת פחמן דו-חמצני והנמוכה ביותר היא על SOX. לא הבחנו ביתרון הגודל בתוצאות המחקר, אך אין זה אומר שאינו קיים.
+
+לעומת הקשר הברור בין גודל אוכלוסייה לפליטות מזהמים, אין קשר בין פליטות המזהמים לבין מוות מזיהום וזאת בניגוד להשערת המחקר שלנו. יש לתת את הדעת לכך שלא לקחנו בחשבון את כל מזהמי האוויר, הנתונים היו מוגבלים ונגעו לנתוני מזהמים ספציפיים אותם הצלחנו למצוא ולהוריד. בנוסף, הבדיקה נעשתה עבור שנת 2018, אך מוות מזיהום יכול לקרות עקב תהליך ארוך שנים ומחלות עקב חשיפה לזיהום מתמשך. 
+
+כחלק ממחקר עתידי רצוי להתייחס גם למזהמים ולמדדים נוספים כדי לקבל תמונה מלאה יותר ולהסביר בצורה טובה יותר את ההשפעות השונות של אוכלוסיית המדינה ושל המזהמים. 
+</div>
+
+
+## ביבליוגרפיה
+
+Bashir, M. F., Benjiang, M. A., Shahbaz, M., Shahzad, U., & Vo, X. V. (2021). Unveiling the heterogeneous impacts of environmental taxes on energy consumption and energy intensity: Empirical evidence from OECD countries. Energy, 226, 120366.‏
+
+Boeing, G. (2018). Estimating local daytime population density from census and payroll data. Regional Studies, Regional Science, 5(1), 179-182.
+
+Ehrlich, P.R., & Holdern, J. P. (1971) Impact of population growth. Science, 171(3977), 1212-1217.
+
+Eppel, J. (1999). Sustainable development and environment: A renewed effort in the OECD. Environment, Development and Sustainability, 1(1), 41-53.‏
+‏
+
+Ouyang, X., Shao, Q., Zhu, X., He, Q., Xiang, C., & Wei, G. (2019). Environmental regulation, economic growth and air pollution: Panel threshold analysis for OECD countries. Science of the total environment, 657, 234-241.
+
+
+
+
+[Github](https://github.com/dafnashk/Project_Dafna_Dor)
